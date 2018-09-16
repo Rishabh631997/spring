@@ -1,0 +1,59 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+    <bean id="hiBean"
+          class="com.practice.spring.beans.HiBean">
+        <property name="beanName" value="Hi Bean"/>
+    </bean>
+
+    <bean id="helloBean"
+          class="com.practice.spring.beans.HelloBean" init-method="init" scope="prototype">
+        <!--<property name="beanName" value="Hello Bean" />-->
+        <!--<property name="hiBean" ref="hiBean"/>-->
+        <constructor-arg value="Hello1 Bean"/>
+        <constructor-arg ref="hiBean"/>
+    </bean >
+    <bean id="Google"
+    class="com.practice.spring.beans.Google">
+        <property name="Login" value="Login using Google"></property>
+        <property name="Logout" value="Logout using Google"></property>
+        <property name="fb" ref="Facebook"></property>
+        <property name="ln" ref="LinkedIn"></property>
+        <property name="gb" ref="Github"></property>
+        <property name="wa" ref="Whatsapp"></property>
+
+    </bean>
+
+    <bean id="Facebook"
+          class="com.practice.spring.beans.Facebook">
+        <property name="Login" value="Login using Facebook"></property>
+        <property name="Logout" value="Logout using Facebook"></property>
+
+    </bean>
+
+    <bean id="LinkedIn"
+          class="com.practice.spring.beans.LinkedIn">
+        <property name="Login" value="Login using LinkedIn"></property>
+        <property name="Logout" value="Logout using LinkedIn"></property>
+
+    </bean>
+
+    <bean id="Github"
+          class="com.practice.spring.beans.Github">
+        <property name="Login" value="Login using Github"></property>
+        <property name="Logout" value="Logout using Github"></property>
+
+    </bean>
+
+    <bean id="Whatsapp"
+          class="com.practice.spring.beans.Whatsapp">
+        <property name="Login" value="Login using Whatsapp"></property>
+        <property name="Logout" value="Logout using Whatsapp"></property>
+
+    </bean>
+
+</beans>
